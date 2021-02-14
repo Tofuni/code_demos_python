@@ -1,3 +1,4 @@
+# params: (li) a list of items
 def reverse_list(li):
 	i, h = len(li)-1, len(li)//2
 	for j in range(h):

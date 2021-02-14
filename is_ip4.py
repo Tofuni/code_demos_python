@@ -1,3 +1,4 @@
+# params: (ip) a string
 def is_ipv4(ip):
 	a = ip.split('.') if len(ip.split('.')) == 4 else []
 	if not a:

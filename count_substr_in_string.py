@@ -1,3 +1,5 @@
+# params: (s) string, (x) substring to count in string
+
 # soln 1
 def x_count_in_string(s, x):
 	r = 0

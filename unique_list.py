@@ -1,3 +1,4 @@
+# params: (li) list of items
 def uniq_list(li):
 	f = []
 	for i in li:

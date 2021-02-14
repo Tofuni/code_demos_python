@@ -12,6 +12,7 @@ def recursive_find_key_value(x, y):
 			return x[z]
 	return None
 
+# params: (fp) path of json file, (attrs) list of attributes to find in json file
 def get_json_attrs(fp, attrs=[]):
 	try:
 		f = open(fp, "r")

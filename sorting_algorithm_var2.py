@@ -1,3 +1,4 @@
+# params: (arr) list of numbers
 def sort_var2(arr):
 	c = 0
 	while(c != len(arr)-1):

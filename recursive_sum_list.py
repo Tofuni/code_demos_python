@@ -1,3 +1,4 @@
+# params: (i) list of numeric items
 def recursive_sum_list(i):
 	r = 0
 	if not isinstance(i, list):

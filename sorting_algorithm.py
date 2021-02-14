@@ -1,3 +1,4 @@
+# params: (ls) list of numbers
 def sort_list(ls):
 	b = 1
 	while b:

@@ -1,5 +1,6 @@
 import requests as req
 
+# params: (url) url string
 def validate_url(url):
 	try:
 		a = req.get(url)

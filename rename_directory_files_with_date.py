@@ -1,6 +1,7 @@
 import os
 import datetime as dt
 
+# params: (path) string path
 def rename_directory_files_with_date(path):
 	try:
 		files = os.listdir(path)

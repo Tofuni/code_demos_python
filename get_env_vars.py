@@ -1,5 +1,6 @@
 import os
 
+# params: (vars) list of environment variables as strings
 def get_env_vars(vars):
 	r = {}
 	for var in vars:

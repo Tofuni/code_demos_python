@@ -1,3 +1,4 @@
+# params: (matrix) a 2d matrix, (placeholder) a string
 def matrix_form(matrix, placeholder):
 	max_row = 0
 	m = []

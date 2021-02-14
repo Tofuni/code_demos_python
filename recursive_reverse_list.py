@@ -1,3 +1,4 @@
+# params: (i) list of items
 def recursive_reverse_list(i):
 	r = []
 	if len(i) <= 1:

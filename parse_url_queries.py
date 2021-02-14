@@ -1,3 +1,4 @@
+# params: (q) a url string
 def url_query(q):
 	a = q[q.find('?')+1::]
 	r = {}

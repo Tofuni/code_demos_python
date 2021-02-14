@@ -1,5 +1,6 @@
 import random as r
 
+# params: (li) list of items
 def randomize(li):
 	a = []
 	for e in range(0, len(li)):

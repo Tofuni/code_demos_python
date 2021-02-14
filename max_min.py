@@ -1,3 +1,4 @@
+# params: (list) a list of numbers
 def min_max(list):
 	r = [list[0]]
 	for e in range(1,len(list)):

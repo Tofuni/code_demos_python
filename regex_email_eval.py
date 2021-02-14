@@ -1,5 +1,6 @@
 import re
 
+# params: (li) list of email strings, (domain) domain string
 def regex_email_eval(li, domain):
 	valid_emails = []
 	for i in li:

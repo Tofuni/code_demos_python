@@ -1,3 +1,4 @@
+# params: (ls) a list of 2-item tuples
 def lin_reg(ls):
 	n, xy, x2, y2, x, y = len(ls), 0, 0, 0, 0, 0
 	for i in range(0,len(ls)):

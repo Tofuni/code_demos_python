@@ -1,3 +1,5 @@
+# params: (s) string, (x) substring to get indices of in string
+
 # soln 1
 def get_indices_of_x_in_string(s, x):
 	r = []

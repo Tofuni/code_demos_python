@@ -6,6 +6,7 @@ def test_timer(size=100):
 		obj[str(a)]=a*2
 	return
 
+# params: (func) function call, (setup_func) function name, (number) number of runtimes, (repeat) number of repeat times
 def time_func(func, setup_func, number=1000, repeat=1):
 	setup = "from __main__ import " + setup_func
 	if repeat > 1:

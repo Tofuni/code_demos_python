@@ -1,5 +1,6 @@
 import random as r
 
+# params: (points) list of items, (num_sets) number of item sets
 def randomize_sets(points, num_sets):
 	sets = []
 	points = points.copy()

@@ -1,3 +1,4 @@
+# params: (i) a list
 def item_frequency(i):
 	a = {}
 	for b in i:

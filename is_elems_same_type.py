@@ -1,3 +1,4 @@
+# params: (lst) list of items
 def is_elems_same_type(lst):
 	if len(lst) > 1:
 		t = type(lst[0])

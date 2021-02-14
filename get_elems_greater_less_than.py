@@ -1,3 +1,4 @@
+# params: (lst) list of numbers, (num) number, (s) '<' or '>' sign for comparison
 def get_elems_greater_less_than(lst, num, s):
 	return {
 		'>': [i for i in lst if i > num],

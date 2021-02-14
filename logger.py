@@ -1,6 +1,7 @@
 import logging
 import datetime as dt
 
+# params: (filename) a string, (message) a string, (type) string value of "info", "warning", "error", or "critical"
 def logfile(filename, message, type):
 	filename += '_' + dt.datetime.now().strftime('%d-%m-%Y')
 	logging.basicConfig(filename=filename+'.log', level=logging.DEBUG)

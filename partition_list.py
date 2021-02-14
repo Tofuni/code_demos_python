@@ -1,3 +1,4 @@
+# params: (ls) a list of numbers, (s) number of partitions
 def partition_list(ls=[], s=1):
 	r, i, n, z = [], 0, len(ls)//s, len(ls)%s
 	for a in range(0,s):

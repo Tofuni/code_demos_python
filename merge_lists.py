@@ -1,3 +1,4 @@
+# params: (a1) a list, (a2) a list, (i) a numeric index of list a2
 def merge_lists(a1,a2,i):
 	if i <= len(a2) and i >= 0:
 		b = 0

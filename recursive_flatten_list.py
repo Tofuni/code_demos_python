@@ -1,3 +1,4 @@
+# params: (i) list of items
 def recursive_flatten_list(i):
 	r = []
 	if not isinstance(i, list):

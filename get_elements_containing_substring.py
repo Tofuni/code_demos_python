@@ -1,3 +1,4 @@
+# params: (a) list of strings, (s) substring to find in list of strings
 def get_elems_with_substr(a, s):
 	return [r for r in a if r.find(s) != -1]
 

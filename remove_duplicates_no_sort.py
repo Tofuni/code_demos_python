@@ -1,3 +1,4 @@
+# params: (arr) list of numbers
 def remove_duplicates_no_sort(arr):
 	for a in range(len(arr)):
 		for b in range(len(arr)-1,a,-1):

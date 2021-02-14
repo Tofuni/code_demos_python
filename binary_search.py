@@ -1,3 +1,4 @@
+# params: (ls) list of numbers, (s) number to search for
 def binary_search(ls=[], s=None):
 	if s not in ls:
 		return None

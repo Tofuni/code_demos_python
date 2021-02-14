@@ -1,3 +1,4 @@
+# params: (n) a number
 def is_prime(n):
 	i = 2
 	while(i <= n//i):

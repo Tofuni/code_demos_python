@@ -1,5 +1,6 @@
 import re
 
+# params: (text) a string
 def is_valid_input(text):
 	a = re.search('[^\-\.\w]', text)
 	if a == None:

@@ -15,6 +15,7 @@ def testArgs(arg1, arg2, arg3, arg4):
 
 # -------------------- run_x_times --------------------
 
+# params: (func) function name, (args) list of arguments, (x) number of runtimes
 def run_x_times(func, args=[], x=1):
 	for a in range(x):
 		func(*args)
