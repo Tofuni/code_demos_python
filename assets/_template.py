@@ -6,5 +6,5 @@ def func():
 
 a = []
 for i in a:
-	print()
+	print("\n-----------------\n\n" + str(i) + "\n" + str(func(i)))
 input()

@@ -1,3 +1,2 @@
-- get focal point of multiple points (allow multi-dimensional e.g. 2D, 3D points)
 - get top/bottom n vals of array data
 - get top/bottom n percentile of array data
