@@ -1,5 +1,5 @@
 # params: (i) list of numbers
-def recursive_sort_list_2(i):
+def recursive_sort_list_two_tailed(i):
 	r = []
 	if len(i) <= 1:
 		return i
@@ -8,7 +8,7 @@ def recursive_sort_list_2(i):
 			i[0], i[j] = i[j], i[0]
 		if i[j] > i[-1]:
 			i[-1], i[j] = i[j], i[-1]
-	r += [i[0]] + recursive_sort_list_2(i[1:-1]) + [i[-1]]
+	r += [i[0]] + recursive_sort_list_two_tailed(i[1:-1]) + [i[-1]]
 	return r
 
 # ------------------------- test -------------------------
@@ -22,5 +22,5 @@ a = [
 	[0.6,1.9,0.7,4.2,7.6,1.9,3.6,0.2,8.0,3.7,5.8]
 	]
 for i in a:
-	print("\n-----------------\n\n" + str(i) + "\n" + str(recursive_sort_list_2(i)))
+	print("\n-----------------\n\n" + str(i) + "\n" + str(recursive_sort_list_two_tailed(i)))
 input()
