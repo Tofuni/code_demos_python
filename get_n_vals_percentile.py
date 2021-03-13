@@ -11,7 +11,7 @@ def sort_list(ls):
 				b = 1
 	return ls
 
-# params: (lst) list of numbers, (p) percentage, (t) top/bottom items option
+# params: (lst) list of numbers, (p) percentage, (t) top/bottom items option, (r) round up/down percentile items
 def get_n_vals_percentile(lst, p, t=1, r=1):
 	s = sort_list(lst)
 	i = {
