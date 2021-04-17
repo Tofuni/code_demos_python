@@ -5,7 +5,7 @@ def sets_of_x(data, x):
     for a in range(len(data)//x):
         r.append(data[i:i+x])
         i+=x
-    r.append(data[i:len(data)])
+    (len(data[i:len(data)]) > 0) and r.append(data[i:len(data)])
     return r
 
 # ------------------------- test -------------------------
