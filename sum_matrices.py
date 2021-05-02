@@ -55,5 +55,15 @@ a = [
 	]
 ]
 for i in a:
-	print("\n-----------------\n\nmatrices to add: " + str(i) + "\n\nsummed matrices: " + str(sum_matrices(*i)))
+	print("\nmatrices to add:\n")
+	for row in i[0]:
+		print(row)
+	print("\n")
+	for row in i[1]:
+		print(row)
+	r = sum_matrices(*i)
+	print("\nsummed matrices:\n")
+	for row in r:
+		print(row)
+	print("\n-----------------\n")
 input()
