@@ -3,10 +3,11 @@ import random as r
 # params: (li) list of items
 def randomize(li):
 	a = []
-	for e in range(0, len(li)):
-		i = r.randint(0, len(li)-1)
-		a.append(li[i])
-		del li[i]
+	list = li.copy()
+	for e in range(0, len(list)):
+		i = r.randint(0, len(list)-1)
+		a.append(list[i])
+		del list[i]
 	return a
 
 # ------------------------- test -------------------------
