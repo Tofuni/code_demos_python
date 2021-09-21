@@ -89,12 +89,32 @@ class LinkedList:
 		if location == 'head':
 			node_to_add.set_next(self.head)
 			self.head = node_to_add
-			print("queue-ing node {0} from head; setting head node to {1}".format(node_to_add, self.head))
+			print("queue-ing node {0} from head Queue; setting head node to {1}".format(node_to_add, self.head))
 			return
 		if location == 'tail':
 			self.tail.next = node_to_add
 			self.tail = self.tail.next
 			print("queue-ing node {0} from tail; setting tail node to {1}".format(node_to_add, self.tail))
+			return
+		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
+	# dequeue nodes
+	def dequeue(self, location='head'):
+		if location == 'head':
+			current_node = self.head
+			while(current_node is not None):
+				if current_node.get_next() == self.tail:
+					break
+				current_node = current_node.get_next()
+			self.tail = current_node
+			self.tail.set_next(None)
+			print("dequeue-ing node from head Queue; setting tail node to {0}".format(self.tail))
+			return
+		if location == 'tail':
+			current_node = self.head
+			next_node = current_node.get_next()
+			self.head = next_node
+			current_node.set_next(None)
+			print("dequeue-ing node from tail Queue; setting head node to {0}".format(self.head))
 			return
 		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
 
@@ -133,12 +153,20 @@ print("\n\n-----------------------------\n\
 ----------- Queue -----------\n\
 -----------------------------\n")
 
-print("\n----- test - queue from head")
+print("\n----- test - queue from head Queue")
 myLinkedList.queue('queue_from_head')
 myLinkedList.print_nodes()
 
-print("\n----- test - queue from tail")
+print("\n----- test - dequeue from head Queue")
+myLinkedList.dequeue()
+myLinkedList.print_nodes()
+
+print("\n----- test - queue from tail Queue")
 myLinkedList.queue('queue_from_tail', 'tail')
+myLinkedList.print_nodes()
+
+print("\n----- test - dequeue from tail Queue")
+myLinkedList.dequeue('tail')
 myLinkedList.print_nodes()
 
 input()
