@@ -80,6 +80,23 @@ class LinkedList:
 			current_node = next_node
 		self.set_head(previous_node)
 		print("reversed LinkedList - head is {0} | tail is {1}".format(self.head, self.tail))
+	# ----------------------------------------------
+	# implement Queue (FIFO) using LinkedList
+	# ----------------------------------------------
+	# queue nodes
+	def queue(self, value=None, location='head'):
+		node_to_add = Node(value)
+		if location == 'head':
+			node_to_add.set_next(self.head)
+			self.head = node_to_add
+			print("queue-ing node {0} from head; setting head node to {1}".format(node_to_add, self.head))
+			return
+		if location == 'tail':
+			self.tail.next = node_to_add
+			self.tail = self.tail.next
+			print("queue-ing node {0} from tail; setting tail node to {1}".format(node_to_add, self.tail))
+			return
+		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
 
 print("----- test - initialize a LinkedList")
 myLinkedList = LinkedList("item_1")
@@ -110,6 +127,18 @@ myLinkedList.get_node("item_8")
 
 print("\n----- test - reverse the list items")
 myLinkedList.reverse()
+myLinkedList.print_nodes()
+
+print("\n\n-----------------------------\n\
+----------- Queue -----------\n\
+-----------------------------\n")
+
+print("\n----- test - queue from head")
+myLinkedList.queue('queue_from_head')
+myLinkedList.print_nodes()
+
+print("\n----- test - queue from tail")
+myLinkedList.queue('queue_from_tail', 'tail')
 myLinkedList.print_nodes()
 
 input()
