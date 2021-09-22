@@ -94,7 +94,7 @@ class LinkedList:
 		if location == 'tail':
 			self.tail.next = node_to_add
 			self.tail = self.tail.next
-			print("queue-ing node {0} from tail; setting tail node to {1}".format(node_to_add, self.tail))
+			print("queue-ing node {0} from tail Queue; setting tail node to {1}".format(node_to_add, self.tail))
 			return
 		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
 	# dequeue nodes
@@ -102,7 +102,7 @@ class LinkedList:
 		if location == 'head':
 			current_node = self.head
 			while(current_node is not None):
-				if current_node.get_next() == self.tail:
+				if current_node.get_next().get_next() == None:
 					break
 				current_node = current_node.get_next()
 			self.tail = current_node
@@ -115,6 +115,42 @@ class LinkedList:
 			self.head = next_node
 			current_node.set_next(None)
 			print("dequeue-ing node from tail Queue; setting head node to {0}".format(self.head))
+			return
+		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
+	# ----------------------------------------------
+	# implement Stack (FILO) using LinkedList
+	# ----------------------------------------------
+	# stack nodes
+	def stack(self, value=None, location='head'):
+		node_to_add = Node(value)
+		if location == 'head':
+			node_to_add.set_next(self.head)
+			self.head = node_to_add
+			print("queue-ing node {0} from head Stack; setting head node to {1}".format(node_to_add, self.head))
+			return
+		if location == 'tail':
+			self.tail.next = node_to_add
+			self.tail = self.tail.next
+			print("queue-ing node {0} from tail Stack; setting tail node to {1}".format(node_to_add, self.tail))
+			return
+		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
+	# destack nodes
+	def destack(self, location='head'):
+		if location == 'head':
+			current_node = self.head
+			self.head = current_node.get_next()
+			current_node.set_next(None)
+			print("destack-ing node from head Stack; setting head node to {0}".format(self.head))
+			return
+		if location == 'tail':
+			current_node = self.head
+			while (current_node.get_next() is not None):
+				if current_node.get_next().get_next() == None:
+					break
+				current_node = current_node.get_next()
+			self.tail = current_node
+			self.tail.set_next(None)
+			print("destack-ing node from tail Stack; setting tail node to {0}".format(self.tail))
 			return
 		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
 
@@ -167,6 +203,26 @@ myLinkedList.print_nodes()
 
 print("\n----- test - dequeue from tail Queue")
 myLinkedList.dequeue('tail')
+myLinkedList.print_nodes()
+
+print("\n\n-----------------------------\n\
+----------- Stack -----------\n\
+-----------------------------\n")
+
+print("\n----- test - stack from head Stack")
+myLinkedList.stack('stack_from_head')
+myLinkedList.print_nodes()
+
+print("\n----- test - destack from head Stack")
+myLinkedList.destack()
+myLinkedList.print_nodes()
+
+print("\n----- test - stack from tail Stack")
+myLinkedList.stack('stack_from_tail', 'tail')
+myLinkedList.print_nodes()
+
+print("\n----- test - destack from tail Stack")
+myLinkedList.destack('tail')
 myLinkedList.print_nodes()
 
 input()
