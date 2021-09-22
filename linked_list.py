@@ -37,6 +37,23 @@ class LinkedList:
 		self.tail.set_next(node_to_add)
 		print("linked node {0} to {1}".format(node_to_add, self.tail))
 		self.tail = self.tail.get_next()
+	# remove a node to the LinkedList
+	def remove_node(self, location='head'):
+		if location == 'head':
+			current_node = self.head
+			self.head = current_node.get_next()
+			current_node.set_next(None)
+			print("removed head node; setting head node to {0}".format(self.head))
+		if location == 'tail':
+			current_node = self.head
+			while current_node is not None:
+				if current_node.get_next().get_next() == None:
+					break
+				current_node = current_node.get_next()
+			self.tail = current_node
+			current_node.set_next(None)
+			print("removed tail node; setting tail node to {0}".format(self.tail))
+		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
 	# get the nth node starting from the head node
 	def get_nth_node(self, n):
 		current = self.get_head()
@@ -183,6 +200,14 @@ myLinkedList.get_node("item_8")
 
 print("\n----- test - reverse the list items")
 myLinkedList.reverse()
+myLinkedList.print_nodes()
+
+print("\n----- test - remove node from head")
+myLinkedList.remove_node()
+myLinkedList.print_nodes()
+
+print("\n----- test - remove node from tail")
+myLinkedList.remove_node('tail')
 myLinkedList.print_nodes()
 
 print("\n\n-----------------------------\n\
