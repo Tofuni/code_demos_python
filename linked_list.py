@@ -32,11 +32,22 @@ class LinkedList:
 	def set_tail(self, node):
 		self.tail = node
 	# add a node to the LinkedList
-	def add_node(self, value):
+	def add_node(self, value, location='head'):
 		node_to_add = Node(value)
-		self.tail.set_next(node_to_add)
-		print("linked node {0} to {1}".format(node_to_add, self.tail))
-		self.tail = self.tail.get_next()
+		if location == 'head':
+			node_to_add.set_next(self.head)
+			self.head = node_to_add
+			print("linked node {0} to {1}".format(node_to_add, self.head.get_next()))
+			return
+		if location == 'tail':
+			current_node = self.head
+			while(current_node.get_next() is not None):
+				current_node = current_node.get_next()
+			current_node.set_next(node_to_add)
+			self.tail = node_to_add
+			print("linked node {0} to {1}".format(current_node, self.tail))
+			return
+		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
 	# remove a node to the LinkedList
 	def remove_node(self, location='head'):
 		if location == 'head':
@@ -44,6 +55,7 @@ class LinkedList:
 			self.head = current_node.get_next()
 			current_node.set_next(None)
 			print("removed head node; setting head node to {0}".format(self.head))
+			return
 		if location == 'tail':
 			current_node = self.head
 			while current_node is not None:
@@ -53,6 +65,7 @@ class LinkedList:
 			self.tail = current_node
 			current_node.set_next(None)
 			print("removed tail node; setting tail node to {0}".format(self.tail))
+			return
 		print('invalid location parameter - {0}; it should either be "head" or "tail"'.format(location))
 	# get the nth node starting from the head node
 	def get_nth_node(self, n):
@@ -174,7 +187,7 @@ class LinkedList:
 print("----- test - initialize a LinkedList")
 myLinkedList = LinkedList("item_1")
 
-print("\n----- test - add nodes")
+print("\n----- test - add nodes at head")
 myLinkedList.add_node("item_2")
 myLinkedList.add_node("item_3")
 myLinkedList.add_node("item_4")
@@ -186,20 +199,33 @@ myLinkedList.add_node("item_8")
 print("\n----- test - print the attributes of all nodes")
 myLinkedList.print_nodes()
 
+print("\n----- test - add nodes at tail")
+myLinkedList.add_node("item_t1", "tail")
+myLinkedList.add_node("item_t2", "tail")
+myLinkedList.add_node("item_t3", "tail")
+myLinkedList.add_node("item_t4", "tail")
+myLinkedList.add_node("item_t5", "tail")
+myLinkedList.add_node("item_t6", "tail")
+
+print("\n----- printing all nodes")
+myLinkedList.print_nodes()
+
 print("\n----- test - get the nth node")
 myLinkedList.get_nth_node(0)
 myLinkedList.get_nth_node(3)
-myLinkedList.get_nth_node(6)
 myLinkedList.get_nth_node(9)
+myLinkedList.get_nth_node(25)
 
 print("\n----- test - search for nodes with a specified value")
 myLinkedList.get_node("item_1")
-myLinkedList.get_node("item_5")
-myLinkedList.get_node("item_9")
-myLinkedList.get_node("item_8")
+myLinkedList.get_node("item_4")
+myLinkedList.get_node("item_t5")
+myLinkedList.get_node("item_36")
 
 print("\n----- test - reverse the list items")
 myLinkedList.reverse()
+
+print("\n----- printing all nodes")
 myLinkedList.print_nodes()
 
 print("\n----- test - remove node from head")
@@ -210,9 +236,9 @@ print("\n----- test - remove node from tail")
 myLinkedList.remove_node('tail')
 myLinkedList.print_nodes()
 
-print("\n\n-----------------------------\n\
------------ Queue -----------\n\
------------------------------\n")
+print("\n\n------------------------------------\n\
+----------- Queue [FIFO] -----------\n\
+------------------------------------\n")
 
 print("\n----- test - queue from head Queue")
 myLinkedList.queue('queue_from_head')
@@ -230,9 +256,9 @@ print("\n----- test - dequeue from tail Queue")
 myLinkedList.dequeue('tail')
 myLinkedList.print_nodes()
 
-print("\n\n-----------------------------\n\
------------ Stack -----------\n\
------------------------------\n")
+print("\n\n------------------------------------\n\
+----------- Stack [FILO] -----------\n\
+------------------------------------\n")
 
 print("\n----- test - stack from head Stack")
 myLinkedList.stack('stack_from_head')
