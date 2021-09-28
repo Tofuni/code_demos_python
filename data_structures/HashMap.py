@@ -87,6 +87,35 @@ class HashMap:
 			collisions += 1
 		print("cannot find value for the given key ({0})".format(key))
 		return
+		
+	# remove a (key, value) pair given a key from the HashMap
+	def remove_item(self, key):
+		hash_index = self.compress(self.hash(key))
+		resolved = self.map[hash_index]
+		collisions = 0
+
+		if resolved is None:
+			print("cannot find value for the given key ({0}); skipping item removal".format(key))
+			return None
+		if resolved[0] == key:
+			self.map[hash_index] = None
+			print("removed key, value pair ({0}, {1}) from the HashMap".format(key, resolved[1]))
+			return resolved[1]
+		collisions += 1
+		while (collisions <= self.size):
+			print("key not found at index ({0}); checking next available index...".format(hash_index))
+			hash_index = self.compress(self.hash(key, collisions))
+			resolved = self.map[hash_index]
+			if resolved is None:
+				print("cannot find value for the given key ({0}); skipping item removal".format(key))
+				return None
+			if resolved[0] == key:
+				self.map[hash_index] = None
+				print("removed key, value pair ({0}, {1}) from the HashMap".format(key, resolved[1]))
+				return resolved[1]
+			collisions += 1
+		print("cannot find value for the given key ({0}); skipping item removal".format(key))
+		return
 
 print("\n----- test - initialize a HashMap\n")
 myHashMap = HashMap(15)
@@ -126,4 +155,18 @@ print("")
 print("HashMap available space: {0}".format(myHashMap.get_available_space()))
 print("")
 print("HashMap used space: {0}".format(myHashMap.get_used_space()))
+
+print("\n----- test - remove items from the HashMap\n")
+myHashMap.remove_item("Patchouli")
+myHashMap.remove_item("Yuyuko")
+
+print("\n----- test - get updated metadata and attributes of the HashMap\n")
+print("HashMap map: {0}".format(myHashMap.get_map()))
+print("")
+print("HashMap size: {0}".format(myHashMap.get_size()))
+print("")
+print("HashMap available space: {0}".format(myHashMap.get_available_space()))
+print("")
+print("HashMap used space: {0}".format(myHashMap.get_used_space()))
+
 input()
