@@ -117,8 +117,11 @@ class HashMap:
 		print("cannot find value for the given key ({0}); skipping item removal".format(key))
 		return
 
+# ---------------- HashMap tests ----------------
+
 print("\n----- test - initialize a HashMap\n")
 myHashMap = HashMap(15)
+
 print("\n----- test - add items to the HashMap\n")
 myHashMap.add_item("Reimu", "Hakurei")
 myHashMap.add_item("Hieda", "no Akyuu")
@@ -131,8 +134,6 @@ myHashMap.add_item("Marisa", "Kirisame")
 myHashMap.add_item("Reisen", "Udongein")
 myHashMap.add_item("Patchouli", "Knowledge")
 myHashMap.add_item("Sanae", "Kochiya")
-
-# ---------------- HashMap tests ----------------
 
 print("\n----- test - get items from the HashMap\n")
 myHashMap.get_item("Yuyuko")
@@ -159,6 +160,7 @@ print("HashMap used space: {0}".format(myHashMap.get_used_space()))
 print("\n----- test - remove items from the HashMap\n")
 myHashMap.remove_item("Patchouli")
 myHashMap.remove_item("Yuyuko")
+myHashMap.remove_item("Mai")
 
 print("\n----- test - get updated metadata and attributes of the HashMap\n")
 print("HashMap map: {0}".format(myHashMap.get_map()))
