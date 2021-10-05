@@ -1,16 +1,15 @@
 # params: (ls) list of numbers, (s) number to search for
 def binary_search(ls=[], s=None):
-	if s not in ls:
-		return None
 	i = 0
-	while(1):
+	while(True):
 		print(ls)
-		if len(ls) in [1,2]:
+		if len(ls) < 3:
 			if ls[0] == s:
 				return i
-			else:
+			if ls[1] == s:
 				return i+1
-			
+			return None
+
 		m = len(ls)//2
 		if ls[0] <= s < ls[m]:
 			ls = ls[0:m]
