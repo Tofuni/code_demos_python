@@ -1,4 +1,4 @@
-def recursive_palindrome(text):
+def recursive_palindromes_in_str(text):
 	r = []
 	def eval_palindrome(current, text, r):
 		if len(current) > 1 and current == current[::-1]:
@@ -10,6 +10,6 @@ def recursive_palindrome(text):
 	eval_palindrome("", text, r)
 	return r
 
-print(recursive_palindrome("abcdcbadxvwxyzyxwv"))
-print(recursive_palindrome("oasis kayaks"))
+print(recursive_palindromes_in_str("abcdcbadxvwxyzyxwv"))
+print(recursive_palindromes_in_str("oasis kayaks"))
 input()
